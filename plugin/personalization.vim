@@ -52,7 +52,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <leader>q  <ESC>:q<cr>
-nnoremap <leader>x  <ESC>:wq<cr>
+nnoremap <leader>x  :noh<cr>
 nnoremap <leader>w  :set wrap!<CR>
 nnoremap <leader>gf  viW<C-w>gf
 nnoremap <leader>sf  viW<C-w>f
