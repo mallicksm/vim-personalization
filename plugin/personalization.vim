@@ -63,6 +63,7 @@ command! Difft NERDTreeClose | windo diffthis
 command! Diffo NERDTreeToggle | diffoff!
 nnoremap <leader>d  :Difft<CR>
 nnoremap <leader>dd :Diffo<CR>
+inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
 
