@@ -7,7 +7,7 @@
 if has("gui_running")
    colorscheme gruvbox
 else
-   colorscheme darkblue
+   colorscheme default
    set mouse=a
 endif
 set bg=dark
@@ -17,8 +17,7 @@ let g:gruvbox_contrast_dark = 'hard'
 let mapleader = ','
 
 " Autocmd on entring buffer
-"autocmd BufEnter * silent! lcd %:p:h
-set path+=debug/**,compile/**,design/**,pal_ice/**,ptm_ice/**
+set path+=debug/**,compile/**,design/**,pal_ice/**,ptm_ice/**,~/dotfiles/**,~/.vim/**
 
 
 " Essential sets
