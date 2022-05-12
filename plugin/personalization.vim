@@ -36,18 +36,20 @@ set vb t_vb= "No bells, no flashes
 
 " Usefull Leader Maps
 map <F7> gg=G<C-o><C-o>
-nnoremap <leader>r  :e!<cr>
+nnoremap <leader>r  :e!<CR>
 nnoremap <leader>n  <C-w>ww
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-t> :tabn<cr>
+nnoremap <C-t> :tabn<CR>
+nnoremap <leader>l <ESC>:vertical res -1<CR>
+nnoremap <leader>h <ESC>:vertical res +1<CR>
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
-nnoremap <leader>q  <ESC>:q<cr>
-nnoremap <leader>c  <ESC>:q<cr>
-nnoremap <leader>x  :noh<cr>
+nnoremap <leader>q  <ESC>:q<CR>
+nnoremap <leader>c  <ESC>:q<CR>
+nnoremap <leader>x  :noh<CR>
 nnoremap <leader>w  :set wrap!<CR>
 nnoremap <leader>gf  viW<C-w>gf
 nnoremap <leader>sf  viW<C-w>f
