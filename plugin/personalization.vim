@@ -43,8 +43,12 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-t> :tabn<CR>
-nnoremap <leader>l <ESC>:vertical res -1<CR>
-nnoremap <leader>h <ESC>:vertical res +1<CR>
+call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -1<CR>')
+call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>h', '<ESC>:vertical res +1<CR>')
+call submode#map('vgrow/vshrink', 'n', '', 'l', '<ESC>:vertical res -1<CR>')
+call submode#map('vgrow/vshrink', 'n', '', 'h', '<ESC>:vertical res +1<CR>')
+let g:submode_timeout = 0
+let g:submode_keep_leaving_key = 1
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 nnoremap <leader>q  <ESC>:q<CR>
