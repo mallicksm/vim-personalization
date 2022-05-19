@@ -74,6 +74,24 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 
+" Vimwiki Settings
+nmap <leader>ww <Plug>VimwikiIndex
+nmap <leader>wt <Plug>VimwikiTabIndex
+nmap <leader>ws <Plug>VimwikiUISelect
+nmap <leader>wd <Plug>VimwikiDeleteFile
+nmap <leader>wr <Plug>VimwikiRenameFile
+let wiki_1 = {}
+let wiki_1.path = '~/vimwiki/personal/'
+let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
+
+let wiki_2 = {}
+let wiki_2.path = '~/vimwiki/work/'
+let wiki_2.index = 'main'
+let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
+
+let g:vimwiki_list = [wiki_1, wiki_2]
+au bufenter * :call vimwiki#vars#init()
+
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
