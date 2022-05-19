@@ -82,6 +82,7 @@ let g:UltiSnipsListSnippets="<c-tab>"
 nmap <leader>ww <Plug>VimwikiIndex
 nmap <leader>wt <Plug>VimwikiTabIndex
 nmap <leader>ws <Plug>VimwikiUISelect
+nmap <leader>wi <Plug>VimwikiDiaryIndex
 nmap <leader>wd <Plug>VimwikiDeleteFile
 nmap <leader>wr <Plug>VimwikiRenameFile
 let wiki_1 = {}
@@ -95,6 +96,7 @@ let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 
 let g:vimwiki_list = [wiki_1, wiki_2]
 au bufenter * :call vimwiki#vars#init()
+let g:vimwiki_sync_branch = "master"
 
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
