@@ -87,11 +87,12 @@ nmap <leader>wd <Plug>VimwikiDeleteFile
 nmap <leader>wr <Plug>VimwikiRenameFile
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki/personal/'
+let wiki_1.index = 'index'
 let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 
 let wiki_2 = {}
 let wiki_2.path = '~/vimwiki/work/'
-let wiki_2.index = 'main'
+let wiki_2.index = 'index'
 let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 
 let g:vimwiki_list = [wiki_1, wiki_2]
