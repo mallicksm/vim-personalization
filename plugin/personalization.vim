@@ -79,23 +79,33 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 
 " Vimwiki Settings
-nmap <leader>ww <Plug>VimwikiIndex
-nmap <leader>wt <Plug>VimwikiTabIndex
-nmap <leader>ws <Plug>VimwikiUISelect
-nmap <leader>wi <Plug>VimwikiDiaryIndex
+let g:vimwiki_automatic_nested_syntaxes = 1
+let g:vimwiki_dir_link = 'index'
+let g:vimwiki_links_space_char = '_'
+   " wiki
+nmap <leader>ww <Plug>VimwikiIndex<CR>
+nmap <leader>wi <Plug>VimwikiUISelect
 nmap <leader>wd <Plug>VimwikiDeleteFile
 nmap <leader>wr <Plug>VimwikiRenameFile
+   " Diary
+nmap <leader>di <Plug>VimwikiDiaryIndex<CR>\w\i
+nmap <leader>dn <Plug>VimwikiMakeDiaryNote<CR>
+nmap <leader>dt <Plug>VimwikiMakeTomorrowDiaryNote<CR>
+nmap <leader>dy <Plug>VimwikiMakeYesterdayDiaryNote<CR>
+   " Vimwiki lists
 let wiki_1 = {}
-let wiki_1.path = '~/vimwiki/personal/'
+let wiki_1.path = '~/vimwiki/work/'
 let wiki_1.index = 'index'
 let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
+let wiki_1.auto_toc = 1
 
 let wiki_2 = {}
-let wiki_2.path = '~/vimwiki/work/'
+let wiki_2.path = '~/vimwiki/personal/'
 let wiki_2.index = 'index'
-let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
-
+let wiki_2.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
+let wiki_2.auto_toc = 1
 let g:vimwiki_list = [wiki_1, wiki_2]
+
 au bufenter * :call vimwiki#vars#init()
 let g:vimwiki_sync_branch = "master"
 
