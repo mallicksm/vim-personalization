@@ -43,6 +43,14 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-t> :tabn<CR>
+tnoremap <C-h> <C-w>h
+tnoremap <C-l> <C-w>l
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+tnoremap <C-\> <C-w>:vert term ++close<CR>
+tnoremap <leader><C-\> <C-w>:term ++close<CR>
+nnoremap <leader><C-\> :term ++close<CR>
+nnoremap <C-\> :vert term ++close<CR>
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -1<CR>')
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>h', '<ESC>:vertical res +1<CR>')
 call submode#map('vgrow/vshrink', 'n', '', 'l', '<ESC>:vertical res -1<CR>')
@@ -88,6 +96,7 @@ nmap <leader>wi <Plug>VimwikiUISelect
 nmap <leader>wd <Plug>VimwikiDeleteFile
 nmap <leader>wr <Plug>VimwikiRenameFile
    " Diary
+nmap <leader>dw <Plug>VimwikiDiaryIndex<CR>
 nmap <leader>di <Plug>VimwikiDiaryIndex<CR>\w\i
 nmap <leader>dn <Plug>VimwikiMakeDiaryNote<CR>
 nmap <leader>dt <Plug>VimwikiMakeTomorrowDiaryNote<CR>
