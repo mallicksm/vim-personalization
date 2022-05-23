@@ -74,8 +74,6 @@ nnoremap >          >gv
 nnoremap <          <gv
 command! Difft NERDTreeClose | windo diffthis
 command! Diffo NERDTreeToggle | diffoff!
-nnoremap <leader>d  :Difft<CR>
-nnoremap <leader>dd :Diffo<CR>
 inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
@@ -117,6 +115,16 @@ let g:vimwiki_list = [wiki_1, wiki_2]
 
 au bufenter * :call vimwiki#vars#init()
 let g:vimwiki_sync_branch = "master"
+
+" vim-signify
+set updatetime=100
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '-'
+let g:signify_sign_delete_first_time = '_'
+let g:signify_sign_change            = '~'
+let g:signify_sign_show_count        = 0
+let g:signify_sign_show_text         = 1
+nnoremap <leader>d  :SignifyDiff<CR>
 
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
