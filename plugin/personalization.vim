@@ -43,12 +43,14 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-t> :tabn<CR>
-tnoremap <C-h> <C-w>h
-tnoremap <C-l> <C-w>l
-tnoremap <C-j> <C-w>j
-tnoremap <C-k> <C-w>k
-tnoremap <C-\> <C-w>:vert term ++close<CR>
-tnoremap <leader><C-\> <C-w>:term ++close<CR>
+if v:version > 800
+   tnoremap <C-h> <C-w>h
+   tnoremap <C-l> <C-w>l
+   tnoremap <C-j> <C-w>j
+   tnoremap <C-k> <C-w>k
+   tnoremap <C-\> <C-w>:vert term ++close<CR>
+   tnoremap <leader><C-\> <C-w>:term ++close<CR>
+endif
 nnoremap <leader><C-\> :term ++close<CR>
 nnoremap <C-\> :vert term ++close<CR>
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -1<CR>')
