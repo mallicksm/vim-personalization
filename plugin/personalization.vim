@@ -127,6 +127,10 @@ let g:signify_sign_change            = '~'
 let g:signify_sign_show_count        = 0
 let g:signify_sign_show_text         = 1
 nnoremap <leader>d  :SignifyDiff<CR>
+" vim-sneak
+highlight Sneak guifg=black guibg=red ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
+
 
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
