@@ -33,10 +33,16 @@ set wildignore+=*.a,*.o,.git,.svn*.tmp
 set showcmd
 set splitbelow splitright "Logical splitting
 set vb t_vb= "No bells, no flashes
+set relativenumber
 
 " Usefull Leader Maps
+function FullRefresh()
+   :e!
+   :NERDTreeRefreshRoot
+endfunction
+
 map <F7> gg=G<C-o><C-o>
-nnoremap <leader>r  :e!<CR>
+nnoremap <leader>r  :call FullRefresh()<CR>
 nnoremap <leader>n  <C-w>ww
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
