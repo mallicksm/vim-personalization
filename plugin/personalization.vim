@@ -121,6 +121,25 @@ let wiki_2.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 let wiki_2.auto_toc = 1
 let g:vimwiki_list = [wiki_1, wiki_2]
 
+function! VimwikiLinkHandler(link)
+   " Use Vim to open external files with the 'vfile:' scheme.  E.g.:
+   "   1) [[vfile:~/Code/PythonProject/abc123.py]]
+   "   2) [[vfile:./|Wiki Home]]
+   let link = a:link
+   if link =~# '^vfile:'
+      let link = link[1:]
+   else
+      return 0
+   endif
+   let link_infos = vimwiki#base#resolve_link(link)
+   if link_infos.filename == ''
+      echomsg 'Vimwiki Error: Unable to resolve link!'
+      return 0
+   else
+      execute '! gio open ' . fnameescape(link_infos.filename)
+      return 1
+   endif
+endfunction
 au bufenter * :call vimwiki#vars#init()
 let g:vimwiki_sync_branch = "master"
 
@@ -136,7 +155,6 @@ nnoremap <leader>d  :SignifyDiff<CR>
 " vim-sneak
 highlight Sneak guifg=black guibg=red ctermfg=black ctermbg=cyan
 highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
-
 
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
