@@ -113,6 +113,7 @@ let wiki_1.path = '~/vimwiki/work/'
 let wiki_1.index = 'index'
 let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 let wiki_1.auto_toc = 1
+let wiki_1.auto_export = 1
 
 let wiki_2 = {}
 let wiki_2.path = '~/vimwiki/personal/'
@@ -143,6 +144,8 @@ endfunction
 au bufenter * :call vimwiki#vars#init()
 let g:vimwiki_sync_branch = "master"
 let g:vimwiki_hl_headers = 1
+let g:vimwiki_listsyms = '✗○◐●✓'
+
 
 " vim-signify
 set updatetime=100
