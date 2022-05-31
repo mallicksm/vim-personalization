@@ -142,6 +142,7 @@ function! VimwikiLinkHandler(link)
 endfunction
 au bufenter * :call vimwiki#vars#init()
 let g:vimwiki_sync_branch = "master"
+let g:vimwiki_hl_headers = 1
 
 " vim-signify
 set updatetime=100
