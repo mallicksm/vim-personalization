@@ -48,7 +48,14 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-t> :tabn<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <leader>\| :vsplit<CR>
+nnoremap <leader>- :split<CR>
+nnoremap <leader>1 :tabnext 1<CR>
+nnoremap <leader>2 :tabnext 2<CR>
+nnoremap <leader>3 :tabnext 3<CR>
+nnoremap <leader>4 :tabnext 4<CR>
+nnoremap <leader>5 :tabnext 5<CR>
 if v:version > 800
    tnoremap <C-h> <C-w>h
    tnoremap <C-l> <C-w>l
