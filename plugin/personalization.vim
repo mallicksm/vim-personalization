@@ -61,11 +61,11 @@ if v:version > 800
    tnoremap <C-l> <C-w>l
    tnoremap <C-j> <C-w>j
    tnoremap <C-k> <C-w>k
-   tnoremap <C-\> <C-w>:vert term ++close<CR>
-   tnoremap <leader><C-\> <C-w>:term ++close<CR>
+   tnoremap <leader><leader>- <C-w>:term ++close<CR>
+   tnoremap <leader><leader>\| <C-w>:vert term ++close<CR>
 endif
-nnoremap <leader><C-\> :term ++close<CR>
-nnoremap <C-\> :vert term ++close<CR>
+nnoremap <leader><leader>\| :vert term ++close<CR>
+nnoremap <leader><leader>- :term ++close<CR>
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -1<CR>')
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>h', '<ESC>:vertical res +1<CR>')
 call submode#map('vgrow/vshrink', 'n', '', 'l', '<ESC>:vertical res -1<CR>')
