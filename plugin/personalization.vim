@@ -176,6 +176,9 @@ nnoremap <leader>d  :SignifyDiff<CR>
 highlight Sneak guifg=black guibg=red ctermfg=black ctermbg=cyan
 highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 
+" Ranger explorer
+nnoremap <silent><leader>E :RangerOpenCurrentDir<CR>
+
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
