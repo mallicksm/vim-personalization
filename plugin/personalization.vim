@@ -220,7 +220,8 @@ let g:NERDTreeExtensionHighlightColor['S'] = s:lightGreen
 let g:NERDTreeExtensionHighlightColor['asm'] = s:orange
 
 "indentLine
-let g:indentLine_char = '.'
+let g:indentLine_char = '|'
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 nnoremap <leader>i :IndentLinesToggle<CR>
 
 "AirlineTheme
