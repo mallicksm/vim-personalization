@@ -6,7 +6,11 @@
 "gruvbox
 if has("gui_running")
    colorscheme gruvbox
+   let g:NERDTreeDirArrowExpandable = ''
+   let g:NERDTreeDirArrowCollapsible = ''
 else
+   let g:NERDTreeDirArrowExpandable = '+'
+   let g:NERDTreeDirArrowCollapsible = '-'
    colorscheme default
    set mouse=a
 endif
@@ -34,6 +38,7 @@ set showcmd
 set splitbelow splitright "Logical splitting
 set vb t_vb= "No bells, no flashes
 set relativenumber
+set encoding=utf-8
 
 " Usefull Leader Maps
 function FullRefresh()
@@ -181,13 +186,6 @@ let g:NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeGlyphReadOnly = "RO"
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
 let s:blue = "689FB6"
