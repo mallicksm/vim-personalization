@@ -144,7 +144,10 @@ function! VimwikiLinkHandler(link)
       echomsg 'Vimwiki Error: Unable to resolve link!'
       return 0
    else
-      execute '! gio open ' . fnameescape(link_infos.filename)
+" Open in same window
+"     execute '! open -a ' . '"Google Chrome" ' . '-g ' . fnameescape(link_infos.filename)
+" Open in new window
+      execute '! open -na "Google Chrome" --args --new-window ' . fnameescape(link_infos.filename)
       return 1
    endif
 endfunction
