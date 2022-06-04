@@ -6,11 +6,7 @@
 "gruvbox
 if has("gui_running")
    colorscheme gruvbox
-   let g:NERDTreeDirArrowExpandable = ''
-   let g:NERDTreeDirArrowCollapsible = ''
 else
-   let g:NERDTreeDirArrowExpandable = '+'
-   let g:NERDTreeDirArrowCollapsible = '-'
    colorscheme default
    set mouse=a
 endif
@@ -178,6 +174,8 @@ highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeNodeDelimiter = "\t"
 let g:NERDTreeWinSize=40
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.d$', '\.o$']
