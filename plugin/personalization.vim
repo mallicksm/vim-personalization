@@ -42,7 +42,7 @@ function FullRefresh()
    :NERDTreeRefreshRoot
 endfunction
 
-map <F7> gg=G<C-o><C-o>
+map <F7> gg=G<C-o><C-o>                        "format current file
 nnoremap <leader>r  :call FullRefresh()<CR>
 nnoremap <leader>n  <C-w>ww
 nnoremap <C-h> <C-w>h
@@ -51,7 +51,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>\| :vsplit<CR>
+nnoremap <leader>\ :vsplit<CR>
 nnoremap <leader>- :split<CR>
+nnoremap <leader>_ :split<CR>
 nnoremap <leader>1 :tabnext 1<CR>
 nnoremap <leader>2 :tabnext 2<CR>
 nnoremap <leader>3 :tabnext 3<CR>
@@ -62,11 +64,16 @@ if v:version > 800
    tnoremap <C-l> <C-w>l
    tnoremap <C-j> <C-w>j
    tnoremap <C-k> <C-w>k
-   tnoremap <leader><leader>- <C-w>:term ++close<CR>
-   tnoremap <leader><leader>\| <C-w>:vert term ++close<CR>
+   tnoremap <C-t> <C-w>:tabnew<CR>
+   tnoremap <leader>- <C-w>:term ++close<CR>
+   tnoremap <leader>_ <C-w>:term ++close<CR>
+   tnoremap <leader>\| <C-w>:vert term ++close<CR>
+   tnoremap <leader>\ <C-w>:vert term ++close<CR>
 endif
 nnoremap <leader><leader>\| :vert term ++close<CR>
+nnoremap <leader><leader>\ :vert term ++close<CR>
 nnoremap <leader><leader>- :term ++close<CR>
+nnoremap <leader><leader>_ :term ++close<CR>
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -1<CR>')
 call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>h', '<ESC>:vertical res +1<CR>')
 call submode#map('vgrow/vshrink', 'n', '', 'l', '<ESC>:vertical res -1<CR>')
@@ -88,8 +95,6 @@ nnoremap j           gj
 nnoremap k           gk
 nnoremap >          >gv
 nnoremap <          <gv
-command! Difft NERDTreeClose | windo diffthis
-command! Diffo NERDTreeToggle | diffoff!
 inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
@@ -176,7 +181,7 @@ nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeNodeDelimiter = "\t"
+let NERDTreeNodeDelimiter = "\u00a0"        "non-breaking space
 let g:NERDTreeWinSize=40
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.d$', '\.o$']
 let NERDTreeBookmarksSort=1
@@ -215,7 +220,7 @@ let g:NERDTreeExtensionHighlightColor['S'] = s:lightGreen
 let g:NERDTreeExtensionHighlightColor['asm'] = s:orange
 
 "indentLine
-let g:indentLine_char = '┆'
+let g:indentLine_char = '.'
 nnoremap <leader>i :IndentLinesToggle<CR>
 
 "AirlineTheme
