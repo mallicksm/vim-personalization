@@ -182,8 +182,9 @@ nnoremap <silent><leader>E :RangerOpenCurrentDir<CR>
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+"see icons
+"let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeNodeDelimiter = "\u00a0"        "non-breaking space
 let g:NERDTreeWinSize=40
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.d$', '\.o$']
