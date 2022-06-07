@@ -34,7 +34,6 @@ set showcmd
 set splitbelow splitright "Logical splitting
 set vb t_vb= "No bells, no flashes
 set relativenumber
-set encoding=utf-8
 
 " Usefull Leader Maps
 function FullRefresh()
@@ -214,6 +213,16 @@ let NERDTreeBookmarksSort=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI = 1
+
+" ==============================================================================
+" nerdtree-git-plugin
+" ==============================================================================
+let g:NERDTreeGitStatusShowClean = 0 " shows ✔ when clean
+   
+" ==============================================================================
+" vim-devicons
+" ==============================================================================
+set encoding=utf-8
 
 " ==============================================================================
 " vim-nerdtree-syntax-highlight
