@@ -99,13 +99,17 @@ inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
 
+" ==============================================================================
 " UltiSnips
+" ==============================================================================
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 
+" ==============================================================================
 " Vimwiki Settings
+" ==============================================================================
 let g:vimwiki_automatic_nested_syntaxes = 1
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_links_space_char = '_'
@@ -126,13 +130,14 @@ let wiki_1.path = '~/vimwiki/work/'
 let wiki_1.index = 'index'
 let wiki_1.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 let wiki_1.auto_toc = 1
-let wiki_1.auto_export = 1
+"let wiki_1.auto_export = 1     "export html
 
 let wiki_2 = {}
 let wiki_2.path = '~/vimwiki/personal/'
 let wiki_2.index = 'index'
 let wiki_2.nested_syntaxes = {'python': 'python', 'c': 'cpp'}
 let wiki_2.auto_toc = 1
+"let wiki_2.auto_export = 1     "export html
 let g:vimwiki_list = [wiki_1, wiki_2]
 
 function! VimwikiLinkHandler(link)
@@ -162,40 +167,66 @@ let g:vimwiki_sync_branch = "master"
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_listsyms = '✗○◐●✓'
 
-
+" ==============================================================================
 " vim-signify
-set updatetime=100
+" ==============================================================================
 let g:signify_sign_add               = '+'
 let g:signify_sign_delete            = '-'
 let g:signify_sign_delete_first_time = '_'
 let g:signify_sign_change            = '~'
-let g:signify_sign_show_count        = 0
-let g:signify_sign_show_text         = 1
+let g:signify_sign_show_count        = 1
+
+" Faster sign updates on CursorHold/CursorHold
+set updatetime=100
 nnoremap <leader>d  :SignifyDiff<CR>
+
+" hunk jumping
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
+
+" ==============================================================================
 " vim-sneak
+" ==============================================================================
 highlight Sneak guifg=black guibg=red ctermfg=black ctermbg=cyan
 highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 
+" ==============================================================================
 " Ranger explorer
+" ==============================================================================
 nnoremap <silent><leader>E :RangerOpenCurrentDir<CR>
 
+" ==============================================================================
+" Nerdtree Settings
+" ==============================================================================
 "see icons
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
+"let NERDTreeNodeDelimiter = "\u00a0"       "non-breaking space icon issue, git icons
 
-" Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
-"let NERDTreeNodeDelimiter = "\u00a0"       "non-breaking space icon issue, git icons
 let g:NERDTreeGitStatusPorcelainVersion = 1 "not latest git
 let g:NERDTreeWinSize=40
+let g:NERDTreeShowBookmarks=1
+
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.d$', '\.o$']
 let NERDTreeBookmarksSort=1
-let g:NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI = 1
-let g:airline_powerline_fonts = 1
+
+" ==============================================================================
+" vim-nerdtree-syntax-highlight
+" ==============================================================================
+" Disable unmatched folder and file icons having the same color as their labels
+let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+
+" Highlight full name (not only icons).
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
 let s:blue = "689FB6"
@@ -226,12 +257,18 @@ let g:NERDTreeExtensionHighlightColor['h'] = s:rspec_red
 let g:NERDTreeExtensionHighlightColor['S'] = s:lightGreen
 let g:NERDTreeExtensionHighlightColor['asm'] = s:orange
 
+" ==============================================================================
 "indentLine
+" ==============================================================================
 let g:indentLine_char = '|'
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 nnoremap <leader>i :IndentLinesToggle<CR>
 
+" ==============================================================================
 "AirlineTheme
+" ==============================================================================
+let g:airline_powerline_fonts = 1
 let g:airline_theme='luna'
 let g:airline_section_y=""
 let g:airline#extensions#tabline#enabled = 1
+
