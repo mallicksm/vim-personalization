@@ -186,7 +186,8 @@ nnoremap <silent><leader>E :RangerOpenCurrentDir<CR>
 " Nerdtree Settings
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
-let NERDTreeNodeDelimiter = "\u00a0"        "non-breaking space
+"let NERDTreeNodeDelimiter = "\u00a0"       "non-breaking space icon issue, git icons
+let g:NERDTreeGitStatusPorcelainVersion = 1 "not latest git
 let g:NERDTreeWinSize=40
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.d$', '\.o$']
 let NERDTreeBookmarksSort=1
