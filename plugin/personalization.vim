@@ -179,12 +179,13 @@ highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 " Ranger explorer
 nnoremap <silent><leader>E :RangerOpenCurrentDir<CR>
 
-" Nerdtree Settings
-nmap <leader>e :NERDTreeToggle<CR>
-nmap <leader>nf :NERDTreeFind<CR>
 "see icons
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Nerdtree Settings
+nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 let NERDTreeNodeDelimiter = "\u00a0"        "non-breaking space
 let g:NERDTreeWinSize=40
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.d$', '\.o$']
@@ -193,6 +194,7 @@ let g:NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI = 1
+let g:airline_powerline_fonts = 1
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
 let s:blue = "689FB6"
