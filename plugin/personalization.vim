@@ -34,6 +34,8 @@ set showcmd
 set splitbelow splitright "Logical splitting
 set vb t_vb= "No bells, no flashes
 set relativenumber
+set number
+set signcolumn=yes "no jumping
 
 " Usefull Leader Maps
 function FullRefresh()
@@ -213,6 +215,13 @@ let NERDTreeBookmarksSort=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI = 1
+
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " ==============================================================================
 " nerdtree-git-plugin
