@@ -100,6 +100,14 @@ inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
 
+let g:Pdf2Txt = 'pdftotext -nopgbrk -layout -q -eol unix %:p:S -'
+augroup Pdf2Txt | au!
+    autocmd BufReadCmd *.pdf execute expandcmd('silent read ++edit !'..g:Pdf2Txt)
+    autocmd BufReadCmd *.pdf 1delete_
+    autocmd BufReadCmd *.pdf setfiletype text
+    autocmd BufReadCmd *.pdf setlocal buftype=nowrite
+augroup end
+
 " ==============================================================================
 " UltiSnips
 " ==============================================================================
@@ -290,7 +298,7 @@ let g:NERDTreePatternMatchHighlightColor['\.git.*'] = s:git_orange   " sets the 
 "indentLine
 " ==============================================================================
 let g:indentLine_char = '|'
-let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*', '.*\.pdf']
 nnoremap <leader>ii :IndentLinesToggle<CR>
 
 " ==============================================================================
