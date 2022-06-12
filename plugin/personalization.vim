@@ -94,7 +94,6 @@ nnoremap <leader>w  :set wrap!<CR>
 nnoremap <leader>gf  viW<C-w>gf
 nnoremap <leader>sf  viW<C-w>f
 nnoremap <leader>vf :vertical wincmd f<CR>    "wincmd f is equivalent to <C-W>
-nnoremap <expr> <leader><leader>c getline('.') =~# '^#' ? '0x' : '0i#<ESC>'
 nnoremap j           gj
 nnoremap k           gk
 nnoremap >          >gv
@@ -114,6 +113,11 @@ command! Filename execute ":echo expand('%:p')"
 command! Vimrc    execute ":vsp $MYVIMRC"
 command! Config   execute expandcmd(":vsp "..g:personal_vimrc)
 command! Reload   execute "source $MYVIMRC"
+" ==============================================================================
+" FZF
+" ==============================================================================
+noremap <C-P> :GFiles<CR>
+noremap <C-G> :Rg<CR>
 
 " ==============================================================================
 " Fugitive
