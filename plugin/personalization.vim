@@ -118,11 +118,6 @@ command! Reload   execute "source $MYVIMRC"
 " ==============================================================================
 " Fugitive
 " ==============================================================================
-" map .. to go up the parent, TODO: from vimcast, doesnt work
-autocmd User fugitive
-         \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-         \   nnoremap <buffer> . :edit %:h<CR> |
-         \ endif
 "Auto-clean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
