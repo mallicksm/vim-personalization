@@ -75,10 +75,14 @@ nnoremap <leader><leader>\| :vert term ++close<CR>
 nnoremap <leader><leader>\ :vert term ++close<CR>
 nnoremap <leader><leader>- :term ++close<CR>
 nnoremap <leader><leader>_ :term ++close<CR>
-call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -1<CR>')
-call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>h', '<ESC>:vertical res +1<CR>')
-call submode#map('vgrow/vshrink', 'n', '', 'l', '<ESC>:vertical res -1<CR>')
-call submode#map('vgrow/vshrink', 'n', '', 'h', '<ESC>:vertical res +1<CR>')
+call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>l', '<ESC>:vertical res -3<CR>')
+call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>h', '<ESC>:vertical res +3<CR>')
+call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>j', '<ESC>:res -1<CR>')
+call submode#enter_with('vgrow/vshrink', 'n', '', '<leader>k', '<ESC>:res +1<CR>')
+call        submode#map('vgrow/vshrink', 'n', '',         'l', '<ESC>:vertical res -3<CR>')
+call        submode#map('vgrow/vshrink', 'n', '',         'h', '<ESC>:vertical res +3<CR>')
+call        submode#map('vgrow/vshrink', 'n', '',         'j', '<ESC>:res -1<CR>')
+call        submode#map('vgrow/vshrink', 'n', '',         'k', '<ESC>:res +1<CR>')
 let g:submode_timeout = 0
 let g:submode_keep_leaving_key = 1
 vnoremap <S-j> :m '>+1<CR>gv=gv
@@ -89,8 +93,7 @@ nnoremap <leader>x  :noh<CR>
 nnoremap <leader>w  :set wrap!<CR>
 nnoremap <leader>gf  viW<C-w>gf
 nnoremap <leader>sf  viW<C-w>f
-nnoremap <leader>vf :vertical wincmd f<CR>
-nnoremap <leader>s  :source $MYVIMRC<CR>
+nnoremap <leader>vf :vertical wincmd f<CR>    "wincmd f is equivalent to <C-W>
 nnoremap <expr> <leader><leader>c getline('.') =~# '^#' ? '0x' : '0i#<ESC>'
 nnoremap j           gj
 nnoremap k           gk
@@ -107,6 +110,21 @@ augroup Pdf2Txt | au!
     autocmd BufReadCmd *.pdf setfiletype text
     autocmd BufReadCmd *.pdf setlocal buftype=nowrite
 augroup end
+command! Filename execute ":echo expand('%:p')"
+command! Vimrc    execute ":vsp $MYVIMRC"
+command! Config   execute expandcmd(":vsp "..g:personal_vimrc)
+command! Reload   execute "source $MYVIMRC"
+
+" ==============================================================================
+" Fugitive
+" ==============================================================================
+" map .. to go up the parent, TODO: from vimcast, doesnt work
+autocmd User fugitive
+         \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+         \   nnoremap <buffer> . :edit %:h<CR> |
+         \ endif
+"Auto-clean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " ==============================================================================
 " UltiSnips
@@ -198,11 +216,6 @@ nmap <leader>gk <plug>(signify-prev-hunk)
 " ==============================================================================
 highlight Sneak guifg=black guibg=red ctermfg=black ctermbg=cyan
 highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
-
-" ==============================================================================
-" Ranger explorer
-" ==============================================================================
-nnoremap <silent><leader>E :RangerOpenCurrentDir<CR>
 
 " ==============================================================================
 " Nerdtree Settings
