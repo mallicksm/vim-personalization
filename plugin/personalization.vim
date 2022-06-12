@@ -118,10 +118,12 @@ command! Reload   execute "source $MYVIMRC"
 " ==============================================================================
 noremap <C-P> :GFiles<CR>
 noremap <C-G> :Rg<CR>
+noremap <leader><leader>c :Commands<CR>
+noremap <leader><leader>m :Maps<CR>
 
 " ==============================================================================
 " Fugitive
-" ==============================================================================
+#" ==============================================================================
 "Auto-clean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
