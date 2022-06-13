@@ -116,8 +116,9 @@ command! Reload   execute "source $MYVIMRC"
 " ==============================================================================
 " FZF
 " ==============================================================================
-noremap <C-P> :GFiles<CR>
-noremap <C-G> :Rg<CR>
+noremap <leader>f :GFiles<CR>
+noremap <leader>rg :Rg<CR>
+noremap <leader>gh :Commits<CR>
 noremap <leader><leader>c :Commands<CR>
 noremap <leader><leader>m :Maps<CR>
 
