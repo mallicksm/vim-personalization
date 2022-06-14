@@ -113,14 +113,17 @@ command! Filename execute ":echo expand('%:p')"
 command! Vimrc    execute ":vsp $MYVIMRC"
 command! Config   execute expandcmd(":vsp "..g:personal_vimrc)
 command! Reload   execute "source $MYVIMRC"
+
 " ==============================================================================
 " FZF
 " ==============================================================================
-noremap <leader>f :GFiles<CR>
-noremap <leader>rg :Rg<CR>
-noremap <leader>gh :Commits<CR>
-noremap <leader><leader>c :Commands<CR>
-noremap <leader><leader>m :Maps<CR>
+nnoremap <silent> <leader>f         :!bash -i -c ,f<CR>
+nnoremap <silent> <leader>gf        :!bash -i -c ,gf<CR>
+nnoremap <silent> <Leader>rg        :Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>gh        :Commits<CR>
+nnoremap <silent> <leader>F         :GFiles<CR>
+nnoremap <silent> <leader><leader>c :Commands<CR>
+nnoremap <silent> <leader><leader>m :Maps<CR>
 
 " ==============================================================================
 " Fugitive
