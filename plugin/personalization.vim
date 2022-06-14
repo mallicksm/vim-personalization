@@ -102,6 +102,9 @@ inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
 
+" ==============================================================================
+" Browse pdf
+" ==============================================================================
 let g:Pdf2Txt = 'pdftotext -nopgbrk -layout -q -eol unix %:p:S -'
 augroup Pdf2Txt | au!
     autocmd BufReadCmd *.pdf execute expandcmd('silent read ++edit !'..g:Pdf2Txt)
@@ -109,6 +112,10 @@ augroup Pdf2Txt | au!
     autocmd BufReadCmd *.pdf setfiletype text
     autocmd BufReadCmd *.pdf setlocal buftype=nowrite
 augroup end
+
+" ==============================================================================
+" Convinience Commands
+" ==============================================================================
 command! Filename execute ":echo expand('%:p')"
 command! Vimrc    execute ":vsp $MYVIMRC"
 command! Config   execute expandcmd(":vsp "..g:personal_vimrc)
@@ -118,10 +125,12 @@ command! Reload   execute "source $MYVIMRC"
 " FZF
 " ==============================================================================
 nnoremap <silent> <leader>f         :!bash -i -c ,f<CR>
-nnoremap <silent> <leader>gf        :!bash -i -c ,gf<CR>
+nnoremap <silent> <leader>gb        :BCommits<CR>|          "use this, much better than gf
 nnoremap <silent> <Leader>rg        :Rg <C-R><C-W><CR>
 nnoremap <silent> <leader>gh        :Commits<CR>
 nnoremap <silent> <leader>F         :GFiles<CR>
+nnoremap <silent> <leader>b         :Buffers<CR>
+nnoremap          <leader>s         :echo ',:,/    - Files,Commands,Searches'<Bar>History
 nnoremap <silent> <leader><leader>c :Commands<CR>
 nnoremap <silent> <leader><leader>m :Maps<CR>
 
