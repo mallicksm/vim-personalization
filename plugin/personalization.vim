@@ -101,6 +101,20 @@ nnoremap <          <gv
 inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
+let @d = expand('%:p:h')
+
+" ==============================================================================
+" floaterm
+" ==============================================================================
+let g:floaterm_wintype = 'float'
+let g:floaterm_width = 0.6
+let g:floaterm_height = 0.6
+let g:floaterm_position = 'topleft'
+let g:floaterm_autolose = 2
+
+nnoremap <leader><leader>gdb :FloatermNew --width=0.35 --height=0.8 --title=gdb gdb -tui<CR>
+nnoremap         <leader>rg  :FloatermNew --title=ranger                        ranger<CR>
+nnoremap         <leader>f   :FloatermNew --title=explorer                      bash -i -c ,f<Bar>exit 0<CR>
 
 " ==============================================================================
 " Browse pdf
@@ -120,19 +134,19 @@ command! Filename execute ":echo expand('%:p')"
 command! Vimrc    execute ":vsp $MYVIMRC"
 command! Config   execute expandcmd(":vsp "..g:personal_vimrc)
 command! Reload   execute "source $MYVIMRC"
+command! Cdfile   execute "cd ".@d
 
 " ==============================================================================
 " FZF
 " ==============================================================================
-nnoremap <silent> <leader>f         :!bash -i -c ,f<CR>
-nnoremap <silent> <leader>gb        :BCommits<CR>|          "use this, much better than gf
-nnoremap <silent> <Leader>rg        :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>gh        :Commits<CR>
-nnoremap <silent> <leader>F         :GFiles<CR>
-nnoremap <silent> <leader>b         :Buffers<CR>
-nnoremap          <leader>s         :echo ',:,/    - Files,Commands,Searches'<Bar>History
-nnoremap <silent> <leader><leader>c :Commands<CR>
-nnoremap <silent> <leader><leader>m :Maps<CR>
+nnoremap <silent> <leader>gb         :BCommits<CR>|          "use this, much better than gf
+nnoremap <silent> <Leader><Leader>rg :Rg <C-R><C-W><CR>|     "vgrep for word under cursor
+nnoremap <silent> <leader>gh         :Commits<CR>
+nnoremap <silent> <leader>F          :GFiles<CR>
+nnoremap <silent> <leader>b          :Buffers<CR>
+nnoremap          <leader>s          :echo ',:,/    - Files,Commands,Searches'<Bar>History
+nnoremap <silent> <leader><leader>c  :Commands<CR>
+nnoremap <silent> <leader><leader>m  :Maps<CR>
 
 " ==============================================================================
 " Fugitive
