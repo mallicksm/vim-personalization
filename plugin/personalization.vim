@@ -113,8 +113,9 @@ let g:floaterm_position = 'topleft'
 let g:floaterm_autolose = 2
 
 nnoremap <leader><leader>gdb :FloatermNew --width=0.35 --height=0.8 --title=gdb gdb -tui<CR>
-nnoremap         <leader>rg  :FloatermNew --title=ranger                        ranger<CR>
+nnoremap         <leader>ra  :FloatermNew --title=ranger                        ranger<CR>
 nnoremap         <leader>f   :FloatermNew --title=explorer                      bash -i -c ,f<Bar>exit 0<CR>
+nnoremap         <leader>py  :FloatermNew --title=python                        python<CR>
 
 " ==============================================================================
 " Browse pdf
@@ -140,7 +141,7 @@ command! Cdfile   execute "cd ".@d
 " FZF
 " ==============================================================================
 nnoremap <silent> <leader>gb         :BCommits<CR>|          "use this, much better than gf
-nnoremap <silent> <Leader><Leader>rg :Rg <C-R><C-W><CR>|     "vgrep for word under cursor
+nnoremap <silent> <Leader>rg         :Rg .<Bar> fzf -print0<CR>
 nnoremap <silent> <leader>gh         :Commits<CR>
 nnoremap <silent> <leader>F          :GFiles<CR>
 nnoremap <silent> <leader>b          :Buffers<CR>
@@ -266,6 +267,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI = 1
 
 " Start NERDTree and leave the cursor in it.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * NERDTree
 
 " ==============================================================================
