@@ -313,13 +313,12 @@ let g:NERDTreeExtensionHighlightColor['f'] = s:rspec_red
 let g:NERDTreeExtensionHighlightColor['svcf'] = s:rspec_red
 let g:NERDTreeExtensionHighlightColor['log'] = s:brown
 let g:NERDTreeExtensionHighlightColor['sh'] = s:lightGreen
-
-let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders that did not match any rule
-let g:WebDevIconsDefaultFileSymbolColor = s:blue    " sets the color for files that did not match any rule
-
 let g:NERDTreePatternMatchHighlightColor = {}                        " this line is needed to avoid error
 let g:NERDTreePatternMatchHighlightColor['Makefile.*'] = s:rspec_red " sets the color for file pattern Makefile.*
 let g:NERDTreePatternMatchHighlightColor['\.git.*'] = s:git_orange   " sets the color for file pattern .git*
+
+let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders that did not match any rule
+let g:WebDevIconsDefaultFileSymbolColor = s:blue    " sets the color for files that did not match any rule
 
 " ==============================================================================
 "indentLine
