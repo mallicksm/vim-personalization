@@ -112,6 +112,9 @@ nnoremap <leader>5 :tabnext 5<CR>
 " expand %% to files directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" Change to the folder of the current file
+nnoremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
+
 " usefull variables
 let @f = expand('%:t')
 let @g = expand('%:p')
