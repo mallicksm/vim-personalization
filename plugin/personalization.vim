@@ -22,7 +22,7 @@ set path+=debug/**,compile/**,design/**,pal_ice/**,ptm_ice/**,~/dotfiles/**,~/.v
 
 " Essential sets
 set expandtab
-set hlsearch
+set hlsearch incsearch
 set nobackup noswapfile   "disable ~ and .swp file backup feature
 set foldmethod=marker
 set linebreak formatoptions=1 showbreak=>>>
@@ -36,13 +36,23 @@ set vb t_vb= "No bells, no flashes
 set relativenumber
 set number
 set signcolumn=yes "no jumping
+set list
+set listchars=tab:▸\ ,trail:·
+hi SpecialKey ctermfg=66 guifg=#649A9A
+set scrolloff=8
+set sidescrolloff=8
+set clipboard^=unnamed,unnamedplus
+   " Usefull Leader Maps
 
-" Usefull Leader Maps
+vnoremap < <gv
+vnoremap > >gv
+vnoremap y myy`y
+vnoremap Y myY`y
 function FullRefresh()
    :e!
    :NERDTreeRefreshRoot
+   :NERDTreeFind
 endfunction
-
 map <F7> gg=G<C-o><C-o>                        "format current file
 nnoremap <leader>r  :call FullRefresh()<CR>
 nnoremap <leader>n  <C-w>ww
@@ -89,7 +99,7 @@ vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 nnoremap <leader>q  <ESC>:q<CR>
 nnoremap <leader>c  <ESC>:q<CR>
-nnoremap <leader>x  :noh<CR>
+nnoremap <leader><space>  :noh<CR>
 nnoremap <leader>w  :set wrap!<CR>
 nnoremap <leader>gf  viW<C-w>gf
 nnoremap <leader>sf  viW<C-w>f
@@ -102,6 +112,7 @@ inoremap jk <ESC>
 let @f = expand('%:t')
 let @g = expand('%:p')
 let @d = expand('%:p:h')
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " ==============================================================================
 " floaterm
@@ -132,8 +143,8 @@ augroup end
 " Convinience Commands
 " ==============================================================================
 command! Filename execute ":echo expand('%:p')"
-command! Vimrc    execute ":vsp $MYVIMRC"
-command! Config   execute expandcmd(":vsp "..g:personal_vimrc)
+command! Vimrc    execute ":edit $MYVIMRC"
+command! Config   execute expandcmd(":edit "..g:personal_vimrc)
 command! Reload   execute "source $MYVIMRC"
 command! Cdfile   execute "cd ".@d
 
@@ -255,7 +266,7 @@ highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 "let NERDTreeNodeDelimiter = "\u00a0"        " non-breaking space icon issue, git icons
 "let g:NERDTreeGitStatusPorcelainVersion = 1 " if not latest git
 
-nmap <leader>e :NERDTreeToggle<CR>
+nnoremap <expr> <leader>e g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
 nmap <leader>nf :NERDTreeFind<CR>
 let g:NERDTreeWinSize=45
 let g:NERDTreeShowBookmarks=1
@@ -270,11 +281,25 @@ let NERDTreeMinimalUI = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * NERDTree
 
+call NERDTreeAddKeyMap({
+   \ 'key': 'yy',
+   \ 'callback': 'NERDTreeYankFullPath',
+   \ 'quickhelpText': 'put full path of current node into the default register' })
+
+function! NERDTreeYankFullPath()
+   let n = g:NERDTreeFileNode.GetSelected()
+   if n != {}
+      call setreg('"', n.path.str())
+   endif
+   call nerdtree#echo("Node full path yanked!")
+endfunction
+
+
 " ==============================================================================
 " nerdtree-git-plugin
 " ==============================================================================
 let g:NERDTreeGitStatusShowClean = 0 " shows ✔ when clean
-   
+
 " ==============================================================================
 " vim-devicons
 " ==============================================================================
