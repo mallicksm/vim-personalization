@@ -30,13 +30,16 @@ set splitbelow splitright "Logical splitting
 set vb t_vb= "No bells, no flashes
 set relativenumber
 set number
+if v:version > 800
 set signcolumn=yes "no jumping
+endif
 set list
 set listchars=tab:▸\ ,trail:·
 hi SpecialKey ctermfg=66 guifg=#649A9A
 set scrolloff=8
 set sidescrolloff=8
-set clipboard^=unnamed,unnamedplus
+"set clipboard^=unnamed,unnamedplus
+set clipboard=unnamedplus
 set timeoutlen=400
 
 " ==============================================================================
@@ -78,15 +81,15 @@ nnoremap <leader>\ :vsplit<CR>
 nnoremap <leader>- :split<CR>
 nnoremap <leader>_ :split<CR>
 if v:version > 800
-   tnoremap <C-t> <C-w>:tabnew<CR>
-   tnoremap <leader>- <C-w>:term ++close<CR>
-   tnoremap <leader>_ <C-w>:term ++close<CR>
-   tnoremap <leader>\| <C-w>:vert term ++close<CR>
-   tnoremap <leader>\ <C-w>:vert term ++close<CR>
-   nnoremap <leader><leader>\| :vert term ++close<CR>
-   nnoremap <leader><leader>\ :vert term ++close<CR>
-   nnoremap <leader><leader>- :term ++close<CR>
-   nnoremap <leader><leader>_ :term ++close<CR>
+tnoremap <C-t> <C-w>:tabnew<CR>
+tnoremap <leader>- <C-w>:term ++close<CR>
+tnoremap <leader>_ <C-w>:term ++close<CR>
+tnoremap <leader>\| <C-w>:vert term ++close<CR>
+tnoremap <leader>\ <C-w>:vert term ++close<CR>
+nnoremap <leader><leader>\| :vert term ++close<CR>
+nnoremap <leader><leader>\ :vert term ++close<CR>
+nnoremap <leader><leader>- :term ++close<CR>
+nnoremap <leader><leader>_ :term ++close<CR>
 endif
 
 " Easier split navigation
@@ -95,10 +98,10 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 if v:version > 800
-   tnoremap <C-h> <C-w>h
-   tnoremap <C-l> <C-w>l
-   tnoremap <C-j> <C-w>j
-   tnoremap <C-k> <C-w>k
+tnoremap <C-h> <C-w>h
+tnoremap <C-l> <C-w>l
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
 endif
 
 " vim tabs
